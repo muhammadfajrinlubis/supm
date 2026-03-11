@@ -52,145 +52,234 @@
 </head>
 
 <body class="bg-white dark:bg-dark transition duration-300">
-<header id="navbar" class="fixed top-0 left-0 w-full flex items-center z-50 transition duration-500 bg-transparent">
-    <div class="container">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+    /* Menerapkan font ke seluruh navbar agar serupa dengan gambar */
+    #navbar {
+        font-family: 'Montserrat', sans-serif;
+    }
+    /* Animasi halus untuk dropdown */
+    .animate-fade-in-down {
+        animation: fadeInDown 0.3s ease-out;
+    }
+    @keyframes fadeInDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+<header id="navbar" class="fixed top-0 left-0 w-full flex items-center z-50 transition duration-500 bg-black/20 backdrop-blur-sm border-b border-white/10">
+    <div class="container mx-auto">
         <div class="flex items-center justify-between relative">
             <div class="px-4">
-                <a href="#home" class="font-bold text-lg text-white flex items-center gap-3 py-6">
-                    <img src="src/img/LogoKKP1.png" alt="Icon Asset" class="w-8 h-8 object-contain brightness-110">
-                    <img src="src/img/bppsdm.png" alt="Icon Asset" class="w-10 h-8 object-contain brightness-110">
-                    <img src="src/img/LogoSupm.png" alt="Icon Asset" class="w-8 h-8 object-contain brightness-110">
-                    <span class="tracking-wider uppercase font-sans">SUPM PARIAMAN</span>
+                <a href="#home" class="flex items-center gap-3 py-5">
+                    <div class="flex gap-2">
+                        <img src="src/img/LogoKKP1.png" alt="Logo" class="w-8 h-8 object-contain brightness-110">
+                        <img src="src/img/bppsdm.png" alt="Logo" class="w-10 h-8 object-contain brightness-110">
+                        <img src="src/img/LogoSupm.png" alt="Logo" class="w-8 h-8 object-contain brightness-110">
+                    </div>
+                    <span class="tracking-widest uppercase font-bold text-white text-base hidden sm:block">SUPM PARIAMAN</span>
                 </a>
             </div>
+
             <div class="flex items-center px-4">
                 <button id="hamburger" type="button" class="block absolute right-4 lg:hidden">
-                    <span class="block w-[30px] h-[2px] my-2 bg-white transition duration-300 origin-top-left"></span>
-                    <span class="block w-[30px] h-[2px] my-2 bg-white transition duration-300"></span>
-                    <span class="block w-[30px] h-[2px] my-2 bg-white transition duration-300 origin-bottom-left"></span>
+                    <span class="block w-[25px] h-[2px] my-1.5 bg-white transition duration-300"></span>
+                    <span class="block w-[25px] h-[2px] my-1.5 bg-white transition duration-300"></span>
+                    <span class="block w-[25px] h-[2px] my-1.5 bg-white transition duration-300"></span>
                 </button>
 
                 <nav id="nav-menu" class="hidden absolute py-5 bg-[#163C67] lg:bg-transparent shadow-lg lg:shadow-none rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:max-w-full lg:rounded-none">
                     <ul class="block lg:flex lg:items-center">
                         <li class="group">
-                            <a href="#supm-pariaman" class="text-base text-white/90 py-2 mx-8 flex group-hover:text-yellow-400 transition font-sans">Beranda</a>
+                            <a href="#home" class="text-[15px] font-semibold text-white py-2 mx-5 flex group-hover:text-yellow-400 transition-all">Home</a>
                         </li>
-                         <li class="group">
-                            <a href="#about" class="text-base text-white/90 py-2 mx-8 flex group-hover:text-yellow-400 transition font-medium">Profil</a>
-                        </li>
-                        
-                        <li class="group relative">
-                            <button class="text-base text-white/90 py-2 mx-8 flex items-center gap-1 group-hover:text-yellow-400 transition focus:outline-none font-medium">
-                                TIMJA
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 group-hover:rotate-180 transition-transform">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                        <li class="relative group nav-dropdown-item" id="proka-item">
+                            <button
+                                type="button"
+                                class="nav-dropdown-btn w-full lg:w-auto flex items-center gap-1 text-[15px] font-semibold text-white px-5 py-2.5 hover:text-yellow-400 transition-colors"
+                            >
+                                PROKA
+                                <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/>
                                 </svg>
                             </button>
-                            
-                            <ul class="lg:absolute left-8 top-full hidden group-hover:block bg-[#1c4a7e] shadow-xl rounded-md min-w-[220px] border-t-4 border-yellow-500 lg:animate-fade-in-down z-50">
-                                <li class="group/sub relative border-b border-white/10">
-                                    <a href="#" class="flex items-center justify-between px-6 py-3 text-sm text-white hover:bg-[#163C67] transition">
-                                        Humas
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 -rotate-90 hidden lg:block">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                                        </svg>
-                                    </a>
-                                    <ul class="lg:absolute left-full top-0 hidden group-hover/sub:block bg-[#163C67] shadow-lg rounded-md min-w-[180px] border-l-4 border-yellow-500">
-                                        <li><a href="#humas-tim" class="block px-6 py-3 text-xs text-white hover:text-yellow-400 transition font-light">Tim Kerja</a></li>
-                                        <li><a href="#humas-dokumen" class="block px-6 py-3 text-xs text-white hover:text-yellow-400 transition font-light">Link Dokumentasi</a></li>
-                                    </ul>
-                                </li>
-
-                                <li class="group/sub relative border-b border-white/10">
-                                    <a href="#" class="flex items-center justify-between px-6 py-3 text-sm text-white hover:bg-[#163C67] transition">
-                                        Kepegawaian
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 -rotate-90 hidden lg:block">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                                        </svg>
-                                    </a>
-                                    <ul class="lg:absolute left-full top-0 hidden group-hover/sub:block bg-[#163C67] shadow-lg rounded-md min-w-[180px] border-l-4 border-yellow-500">
-                                        <li><a href="#pegawai-tim" class="block px-6 py-3 text-xs text-white hover:text-yellow-400 transition font-light">Tim Kerja</a></li>
-                                        <li><a href="#pegawai-dokumen" class="block px-6 py-3 text-xs text-white hover:text-yellow-400 transition font-light">Link Dokumentasi</a></li>
-                                    </ul>
-                                </li>
-                                <li class="group/sub relative border-b border-white/10">
-                                    <a href="#" class="flex items-center justify-between px-6 py-3 text-sm text-white hover:bg-[#163C67] transition">
-                                        RTP
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 -rotate-90 hidden lg:block">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                                        </svg>
-                                    </a>
-                                    <ul class="lg:absolute left-full top-0 hidden group-hover/sub:block bg-[#163C67] shadow-lg rounded-md min-w-[180px] border-l-4 border-yellow-500">
-                                        <li><a href="#rtp-tim" class="block px-6 py-3 text-xs text-white hover:text-yellow-400 transition font-light">Tim Kerja</a></li>
-                                        <li><a href="#rtp-dokumen" class="block px-6 py-3 text-xs text-white hover:text-yellow-400 transition font-light">Link Dokumentasi</a></li>
-                                    </ul>
-                                </li>
-                                <li class="group/sub relative border-b border-white/10">
-                                    <a href="#" class="flex items-center justify-between px-6 py-3 text-sm text-white hover:bg-[#163C67] transition">
-                                        Perpus
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 -rotate-90 hidden lg:block">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                                        </svg>
-                                    </a>
-                                    <ul class="lg:absolute left-full top-0 hidden group-hover/sub:block bg-[#163C67] shadow-lg rounded-md min-w-[180px] border-l-4 border-yellow-500">
-                                        <li><a href="#perpus-tim" class="block px-6 py-3 text-xs text-white hover:text-yellow-400 transition font-light">Tim Kerja</a></li>
-                                        <li><a href="#perpus-dokumen" class="block px-6 py-3 text-xs text-white hover:text-yellow-400 transition font-light">Link Dokumentasi</a></li>
-                                    </ul>
-                                </li>
-                                <li class="group/sub relative border-b border-white/10">
-                                    <a href="#" class="flex items-center justify-between px-6 py-3 text-sm text-white hover:bg-[#163C67] transition">
-                                        Bengkel
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 -rotate-90 hidden lg:block">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                                        </svg>
-                                    </a>
-                                    <ul class="lg:absolute left-full top-0 hidden group-hover/sub:block bg-[#163C67] shadow-lg rounded-md min-w-[180px] border-l-4 border-yellow-500">
-                                        <li><a href="#bengkel-tim" class="block px-6 py-3 text-xs text-white hover:text-yellow-400 transition font-light">Tim Kerja</a></li>
-                                        <li><a href="#bengkel-dokumen" class="block px-6 py-3 text-xs text-white hover:text-yellow-400 transition font-light">Link Dokumentasi</a></li>
-                                    </ul>
-                                </li>
-                                <li class="group/sub relative border-b border-white/10">
-                                    <a href="#" class="flex items-center justify-between px-6 py-3 text-sm text-white hover:bg-[#163C67] transition">
-                                        Pengajaran
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 -rotate-90 hidden lg:block">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                                        </svg>
-                                    </a>
-                                    <ul class="lg:absolute left-full top-0 hidden group-hover/sub:block bg-[#163C67] shadow-lg rounded-md min-w-[180px] border-l-4 border-yellow-500">
-                                        <li><a href="#pegawai-tim" class="block px-6 py-3 text-xs text-white hover:text-yellow-400 transition font-light">Tim Kerja</a></li>
-                                        <li><a href="#pegawai-dokumen" class="block px-6 py-3 text-xs text-white hover:text-yellow-400 transition font-light">Link Dokumentasi</a></li>
-                                    </ul>
-                                </li>
-                                <li class="group/sub relative border-b border-white/10">
-                                    <a href="#" class="flex items-center justify-between px-6 py-3 text-sm text-white hover:bg-[#163C67] transition">
-                                        Keuangan
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 -rotate-90 hidden lg:block">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                                        </svg>
-                                    </a>
-                                    <ul class="lg:absolute left-full top-0 hidden group-hover/sub:block bg-[#163C67] shadow-lg rounded-md min-w-[180px] border-l-4 border-yellow-500">
-                                        <li><a href="#pegawai-tim" class="block px-6 py-3 text-xs text-white hover:text-yellow-400 transition font-light">Tim Kerja</a></li>
-                                        <li><a href="#pegawai-dokumen" class="block px-6 py-3 text-xs text-white hover:text-yellow-400 transition font-light">Link Dokumentasi</a></li>
-                                    </ul>
-                                </li>
+                            <ul class="nav-dropdown-menu hidden group-hover:block lg:absolute left-0 top-full mt-1 bg-[#1c4a7e] shadow-2xl rounded-lg min-w-[270px] border-t-4 border-yellow-400 z-50">
+                                <li><a href="#" class="block px-5 py-3 text-sm text-white font-medium italic border-b border-white/5 hover:bg-yellow-400 hover:text-[#163C67] transition-colors">Nautika Kapal Penangkap Ikan (NKPI)</a></li>
+                                <li><a href="#" class="block px-5 py-3 text-sm text-white font-medium italic border-b border-white/5 hover:bg-yellow-400 hover:text-[#163C67] transition-colors">Teknika Kapal Penangkap Ikan (TKPI)</a></li>
+                                <li><a href="#" class="block px-5 py-3 text-sm text-white font-medium italic border-b border-white/5 hover:bg-yellow-400 hover:text-[#163C67] transition-colors">Agribisnis Perikanan Air Tawar (APAT)</a></li>
+                                <li><a href="#" class="block px-5 py-3 text-sm text-white font-medium italic hover:bg-yellow-400 hover:text-[#163C67] transition-colors">Agribisnis Pengolahan Hasil Perikanan (APHPi)</a></li>
                             </ul>
-                        </li>
+                            </li>
+                        <li class="relative group nav-dropdown-item" id="timja-item">
+                        <button
+                            type="button"
+                            class="nav-dropdown-btn w-full lg:w-auto flex items-center gap-1 text-[15px] font-semibold text-white px-5 py-2.5 hover:text-yellow-400 transition-colors"
+                        >
+                            TIMJA
+                            <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/>
+                            </svg>
+                        </button>
 
-                       
+                        <ul class="nav-dropdown-menu hidden group-hover:block lg:absolute left-0 top-full mt-1 bg-[#1c4a7e] shadow-2xl rounded-lg min-w-[220px] border-t-4 border-yellow-400 z-50">
+                            
+                            <li class="relative group/sub border-b border-white/5">
+                            <div class="flex items-center justify-between px-5 py-3 text-sm text-white font-medium cursor-pointer hover:bg-yellow-400 hover:text-[#163C67] transition-colors">
+                                <svg class="w-3 h-3 rotate-90 lg:block hidden" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/>
+                                </svg>
+                                <span>Humas</span>
+                            </div>
+                            
+                            <ul class="nav-subdropdown-menu hidden group-hover/sub:block lg:absolute right-full top-0 mr-1 bg-[#245a96] shadow-2xl rounded-lg min-w-[180px] border-r-4 border-yellow-400 z-50">
+                                <li><a href="#" class="block px-5 py-2.5 text-xs text-white hover:bg-white/10 text-right">Tim Kerja</a></li>
+                                <li><a href="#" class="block px-5 py-2.5 text-xs text-white hover:bg-white/10 text-right">Dokumentasi</a></li>
+                            </ul>
+                            </li>
+
+                            <li class="relative group/sub border-b border-white/5">
+                            <div class="flex items-center justify-between px-5 py-3 text-sm text-white font-medium cursor-pointer hover:bg-yellow-400 hover:text-[#163C67] transition-colors">
+                                <svg class="w-3 h-3 rotate-90 lg:block hidden" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/>
+                                </svg>
+                                <span>Kepegawaian</span>
+                            </div>
+                            <ul class="nav-subdropdown-menu hidden group-hover/sub:block lg:absolute right-full top-0 mr-1 bg-[#245a96] shadow-2xl rounded-lg min-w-[180px] border-r-4 border-yellow-400 z-50">
+                                <li><a href="#" class="block px-5 py-2.5 text-xs text-white hover:bg-white/10 text-right">Tim Kerja</a></li>
+                                <li><a href="#" class="block px-5 py-2.5 text-xs text-white hover:bg-white/10 text-right">Dokumentasi</a></li>
+                            </ul>
+                            </li>
+                                <li class="relative group/sub border-b border-white/5">
+                                <div class="flex items-center justify-between px-5 py-3 text-sm text-white font-medium cursor-pointer hover:bg-yellow-400 hover:text-[#163C67] transition-colors">
+                                    <svg class="w-3 h-3 rotate-90 lg:block hidden" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/>
+                                    </svg>
+                                    <span>RTP</span>
+                                </div>
+                                <ul class="nav-subdropdown-menu hidden group-hover/sub:block lg:absolute right-full top-0 mr-1 bg-[#245a96] shadow-2xl rounded-lg min-w-[180px] border-r-4 border-yellow-400 z-50">
+                                    <li><a href="#" class="block px-5 py-2.5 text-xs text-white hover:bg-white/10 text-right">Tim Kerja</a></li>
+                                    <li><a href="#" class="block px-5 py-2.5 text-xs text-white hover:bg-white/10 text-right">Dokumentasi</a></li>
+                                </ul>
+                                </li>
+                                <li class="relative group/sub border-b border-white/5">
+                                <div class="flex items-center justify-between px-5 py-3 text-sm text-white font-medium cursor-pointer hover:bg-yellow-400 hover:text-[#163C67] transition-colors">
+                                    <svg class="w-3 h-3 rotate-90 lg:block hidden" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/>
+                                    </svg>
+                                    <span>Perpus</span>
+                                </div>
+                                <ul class="nav-subdropdown-menu hidden group-hover/sub:block lg:absolute right-full top-0 mr-1 bg-[#245a96] shadow-2xl rounded-lg min-w-[180px] border-r-4 border-yellow-400 z-50">
+                                    <li><a href="#" class="block px-5 py-2.5 text-xs text-white hover:bg-white/10 text-right">Tim Kerja</a></li>
+                                    <li><a href="#" class="block px-5 py-2.5 text-xs text-white hover:bg-white/10 text-right">Dokumentasi</a></li>
+                                </ul>
+                                </li>
+                                <li class="relative group/sub border-b border-white/5">
+                                <div class="flex items-center justify-between px-5 py-3 text-sm text-white font-medium cursor-pointer hover:bg-yellow-400 hover:text-[#163C67] transition-colors">
+                                    <svg class="w-3 h-3 rotate-90 lg:block hidden" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/>
+                                    </svg>
+                                    <span>Bengkel</span>
+                                </div>
+                                <ul class="nav-subdropdown-menu hidden group-hover/sub:block lg:absolute right-full top-0 mr-1 bg-[#245a96] shadow-2xl rounded-lg min-w-[180px] border-r-4 border-yellow-400 z-50">
+                                    <li><a href="#" class="block px-5 py-2.5 text-xs text-white hover:bg-white/10 text-right">Tim Kerja</a></li>
+                                    <li><a href="#" class="block px-5 py-2.5 text-xs text-white hover:bg-white/10 text-right">Dokumentasi</a></li>
+                                </ul>
+                                </li>
+                                <li class="relative group/sub border-b border-white/5">
+                                <div class="flex items-center justify-between px-5 py-3 text-sm text-white font-medium cursor-pointer hover:bg-yellow-400 hover:text-[#163C67] transition-colors">
+                                    <svg class="w-3 h-3 rotate-90 lg:block hidden" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/>
+                                    </svg>
+                                    <span>Pengajaran</span>
+                                </div>
+                                <ul class="nav-subdropdown-menu hidden group-hover/sub:block lg:absolute right-full top-0 mr-1 bg-[#245a96] shadow-2xl rounded-lg min-w-[180px] border-r-4 border-yellow-400 z-50">
+                                    <li><a href="#" class="block px-5 py-2.5 text-xs text-white hover:bg-white/10 text-right">Tim Kerja</a></li>
+                                    <li><a href="#" class="block px-5 py-2.5 text-xs text-white hover:bg-white/10 text-right">Dokumentasi</a></li>
+                                </ul>
+                                </li>
+                               <li class="relative group/sub border-b border-white/5">
+                                <div class="flex items-center justify-between px-5 py-3 text-sm text-white font-medium cursor-pointer hover:bg-yellow-400 hover:text-[#163C67] transition-colors">
+                                    <svg class="w-3 h-3 rotate-90 lg:block hidden" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/>
+                                    </svg>
+                                    <span>Keuangan</span>
+                                </div>
+                                <ul class="nav-subdropdown-menu hidden group-hover/sub:block lg:absolute right-full top-0 mr-1 bg-[#245a96] shadow-2xl rounded-lg min-w-[180px] border-r-4 border-yellow-400 z-50">
+                                    <li><a href="#" class="block px-5 py-2.5 text-xs text-white hover:bg-white/10 text-right">Tim Kerja</a></li>
+                                    <li><a href="#" class="block px-5 py-2.5 text-xs text-white hover:bg-white/10 text-right">Dokumentasi</a></li>
+                                </ul>
+                                </li>
+                               <li class="relative group/sub border-b border-white/5">
+                                <div class="flex items-center justify-between px-5 py-3 text-sm text-white font-medium cursor-pointer hover:bg-yellow-400 hover:text-[#163C67] transition-colors">
+                                    <svg class="w-3 h-3 rotate-90 lg:block hidden" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/>
+                                    </svg>
+                                    <span>Kesiswaan</span>
+                                </div>
+                                <ul class="nav-subdropdown-menu hidden group-hover/sub:block lg:absolute right-full top-0 mr-1 bg-[#245a96] shadow-2xl rounded-lg min-w-[180px] border-r-4 border-yellow-400 z-50">
+                                    <li><a href="#" class="block px-5 py-2.5 text-xs text-white hover:bg-white/10 text-right">Tim Kerja</a></li>
+                                    <li><a href="#" class="block px-5 py-2.5 text-xs text-white hover:bg-white/10 text-right">Dokumentasi</a></li>
+                                </ul>
+                                </li>
+                               <li class="relative group/sub border-b border-white/5">
+                                <div class="flex items-center justify-between px-5 py-3 text-sm text-white font-medium cursor-pointer hover:bg-yellow-400 hover:text-[#163C67] transition-colors">
+                                    <svg class="w-3 h-3 rotate-90 lg:block hidden" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/>
+                                    </svg>
+                                    <span>Pengolahan</span>
+                                </div>
+                                <ul class="nav-subdropdown-menu hidden group-hover/sub:block lg:absolute right-full top-0 mr-1 bg-[#245a96] shadow-2xl rounded-lg min-w-[180px] border-r-4 border-yellow-400 z-50">
+                                    <li><a href="#" class="block px-5 py-2.5 text-xs text-white hover:bg-white/10 text-right">Tim Kerja</a></li>
+                                    <li><a href="#" class="block px-5 py-2.5 text-xs text-white hover:bg-white/10 text-right">Dokumentasi</a></li>
+                                </ul>
+                                </li>
+                               <li class="relative group/sub border-b border-white/5">
+                                <div class="flex items-center justify-between px-5 py-3 text-sm text-white font-medium cursor-pointer hover:bg-yellow-400 hover:text-[#163C67] transition-colors">
+                                    <svg class="w-3 h-3 rotate-90 lg:block hidden" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/>
+                                    </svg>
+                                    <span>Hatchery Ikan Hias</span>
+                                </div>
+                                <ul class="nav-subdropdown-menu hidden group-hover/sub:block lg:absolute right-full top-0 mr-1 bg-[#245a96] shadow-2xl rounded-lg min-w-[180px] border-r-4 border-yellow-400 z-50">
+                                    <li><a href="#" class="block px-5 py-2.5 text-xs text-white hover:bg-white/10 text-right">Tim Kerja</a></li>
+                                    <li><a href="#" class="block px-5 py-2.5 text-xs text-white hover:bg-white/10 text-right">Dokumentasi</a></li>
+                                </ul>
+                                </li>
+                               <li class="relative group/sub border-b border-white/5">
+                                <div class="flex items-center justify-between px-5 py-3 text-sm text-white font-medium cursor-pointer hover:bg-yellow-400 hover:text-[#163C67] transition-colors">
+                                    <svg class="w-3 h-3 rotate-90 lg:block hidden" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/>
+                                    </svg>
+                                    <span>Tambak</span>
+                                </div>
+                                <ul class="nav-subdropdown-menu hidden group-hover/sub:block lg:absolute right-full top-0 mr-1 bg-[#245a96] shadow-2xl rounded-lg min-w-[180px] border-r-4 border-yellow-400 z-50">
+                                    <li><a href="#" class="block px-5 py-2.5 text-xs text-white hover:bg-white/10 text-right">Tim Kerja</a></li>
+                                    <li><a href="#" class="block px-5 py-2.5 text-xs text-white hover:bg-white/10 text-right">Dokumentasi</a></li>
+                                </ul>
+                                </li>
+
+
+
+                        
+                        </ul>
+                        </li>
                         <li class="group">
-                            <a href="#contak" class="text-base text-white/90 py-2 mx-8 flex group-hover:text-yellow-400 transition font-medium">Kontak</a>
+                            <a href="#contak" class="text-[15px] font-semibold text-white py-2 mx-5 flex group-hover:text-yellow-400 transition-all">Kontak</a>
                         </li>
+                       
 
-                        <li class="mt-3 lg:mt-0 flex items-center pl-8">
+                        <li class="mt-4 lg:mt-0 flex items-center lg:ml-6 pl-5 lg:pl-0 border-l border-white/20">
                             <div class="flex items-center">
-                                <span class="mr-2 text-[10px] text-blue-200 uppercase tracking-tighter">Light</span>
                                 <input type="checkbox" id="dark-toggle" class="hidden">
-                                <label for="dark-toggle" class="cursor-pointer">
-                                    <div class="flex h-5 w-9 items-center rounded-full bg-[#0d2641] p-1 border border-blue-400">
+                                <label for="dark-toggle" class="cursor-pointer group">
+                                    <div class="flex h-6 w-11 items-center rounded-full bg-white/10 p-1 border border-white/30 group-hover:border-yellow-400 transition">
                                         <div class="toggle-circle h-4 w-4 rounded-full bg-yellow-400 transition duration-300"></div>
                                     </div>
                                 </label>
-                                <span class="ml-2 text-[10px] text-blue-200 uppercase tracking-tighter">Dark</span>
                             </div>
                         </li>
                     </ul>
@@ -199,94 +288,97 @@
         </div>
     </div>
 </header>
-<section id="supm-pariaman" class="relative h-screen w-full overflow-hidden flex flex-col justify-center items-center">
+<section id="supm-pariaman" class="relative h-screen w-full overflow-hidden flex flex-col justify-center items-center bg-gray-900">
     
     <div id="slider" class="absolute inset-0 w-full h-full flex transition-transform duration-700 ease-in-out">
         <div class="min-w-full h-full relative">
-            <img src="src/img/kantor.jpeg" class="w-full h-full object-cover" alt="Gedung SUPM Pariaman">
-            <div class="absolute inset-0 bg-[#163C67]/50"></div> </div>
-        <div class="min-w-full h-full relative">
-            <img src="src/img/image.png" class="w-full h-full object-cover" alt="Fasilitas SUPM">
-            <div class="absolute inset-0 bg-[#163C67]/50"></div>
+            <img src="/src/img/kantor.jpeg" class="w-full h-full object-cover" alt="Gedung SUPM Pariaman">
+            <div class="absolute inset-0 bg-[#163C67]/60"></div> 
         </div>
         <div class="min-w-full h-full relative">
-            <img src="src/img/gedung.png" class="w-full h-full object-cover" alt="Praktik Taruna">
-            <div class="absolute inset-0 bg-[#163C67]/50"></div>
+            <img src="/src/img/image.png" class="w-full h-full object-cover" alt="Fasilitas SUPM">
+            <div class="absolute inset-0 bg-[#163C67]/60"></div>
+        </div>
+        <div class="min-w-full h-full relative">
+            <img src="/src/img/gedung.png" class="w-full h-full object-cover" alt="Praktik Taruna">
+            <div class="absolute inset-0 bg-[#163C67]/60"></div>
         </div>
     </div>
 
     <div class="container relative z-20 px-4 mx-auto text-center">
-        <div class="max-w-3xl mx-auto" data-aos="zoom-in">
-            <h1 class="text-white text-base font-semibold md:text-xl mb-2 tracking-widest uppercase">Selamat Datang di</h1>
-            <h2 class="text-white font-bold text-4xl lg:text-7xl mb-4 drop-shadow-lg leading-tight">SUPM PARIAMAN</h2>
-            <h3 class="text-yellow-400 font-medium text-lg lg:text-2xl mb-8 italic">Pusat Pendidikan & Pelatihan Kelautan Terbaik</h3>
-            <p class="text-white font-light text-sm md:text-lg mb-10 leading-relaxed max-w-2xl mx-auto drop-shadow-md">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-white text-[14px] md:text-[16px] font-semibold tracking-[0.2em] uppercase mb-4 opacity-90">
+                Selamat Datang di
+            </h1>
+            <h2 class="text-white font-bold text-5xl lg:text-8xl mb-4 drop-shadow-2xl leading-tight">
+                SUPM PARIAMAN</span>
+            </h2>
+            <h3 class="text-yellow-400 font-medium text-lg lg:text-2xl mb-8 italic tracking-wide">
+                "Pusat Pendidikan & Pelatihan Kelautan Terbaik"
+            </h3>
+            
+            <p class="text-white/90 font-light text-base md:text-[18px] mb-12 leading-relaxed max-w-2xl mx-auto drop-shadow-md">
                 Mencetak tenaga kerja yang kompeten, disiplin, dan berkarakter di bidang kelautan dan perikanan. Terletak di pesisir Pariaman dengan fasilitas pendukung modern.
             </p>
-<div class="flex flex-col sm:flex-row gap-4 justify-center items-center text-center">
-    
-    <a href="#about"
-       class="flex items-center justify-center bg-yellow-500 text-[#163C67] font-bold
-       h-11 px-7 rounded-full hover:bg-white transition duration-300 shadow-lg">
-       Lihat Profil
-    </a>
 
-    <a href="#contak"
-       class="flex items-center justify-center border-2 border-white text-white font-bold
-       h-10 px-7 rounded-full hover:bg-white hover:text-[#163C67]
-       transition duration-300">
-       Hubungi Kami
-    </a>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                <a href="#about"
+                   class="group flex items-center justify-center bg-yellow-500 text-[#163C67] text-[15px] font-bold
+                   h-12 px-10 rounded-full hover:bg-white transition-all duration-300 shadow-xl scale-100 hover:scale-105">
+                   Lihat Profil
+                </a>
 
-</div>
+                <a href="#contak"
+                   class="group flex items-center justify-center border-2 border-white/50 text-white text-[15px] font-semibold
+                   h-12 px-10 rounded-full hover:border-yellow-400 hover:text-yellow-400
+                   transition-all duration-300 backdrop-blur-sm">
+                   Hubungi Kami
+                </a>
+            </div>
         </div>
     </div>
 
-    <button onclick="prevSlide()" class="absolute left-5 z-30 text-white/50 hover:text-white transition p-2">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-10 h-10">
+    <button onclick="prevSlide()" class="absolute left-5 z-30 text-white/30 hover:text-yellow-400 transition-all p-2 hidden md:block">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-12 h-12">
             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
         </svg>
     </button>
-    <button onclick="nextSlide()" class="absolute right-5 z-30 text-white/50 hover:text-white transition p-2">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-10 h-10">
+    <button onclick="nextSlide()" class="absolute right-5 z-30 text-white/30 hover:text-yellow-400 transition-all p-2 hidden md:block">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-12 h-12">
             <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
         </svg>
     </button>
 
     <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex gap-3">
-        <div class="dot w-3 h-3 rounded-full bg-white opacity-50 transition-all duration-300 cursor-pointer" onclick="goToSlide(0)"></div>
-        <div class="dot w-3 h-3 rounded-full bg-white opacity-50 transition-all duration-300 cursor-pointer" onclick="goToSlide(1)"></div>
-        <div class="dot w-3 h-3 rounded-full bg-white opacity-50 transition-all duration-300 cursor-pointer" onclick="goToSlide(2)"></div>
+        <div class="dot w-3 h-3 rounded-full bg-white opacity-50 transition-all duration-500 cursor-pointer active" onclick="goToSlide(0)"></div>
+        <div class="dot w-3 h-3 rounded-full bg-white opacity-50 transition-all duration-500 cursor-pointer" onclick="goToSlide(1)"></div>
+        <div class="dot w-3 h-3 rounded-full bg-white opacity-50 transition-all duration-500 cursor-pointer" onclick="goToSlide(2)"></div>
     </div>
 </section>
-
-<section id="about" class="pt-36 pb-32 bg-white dark:bg-dark">
+<section id="about" class="pt-24 pb-20 bg-white dark:bg-dark">
     <div class="container mx-auto px-4">
-        <div class="flex flex-wrap items-center">
+        <div class="flex flex-wrap items-center mb-24">
             <div class="w-full px-4 mb-10 lg:w-1/2" data-aos="fade-right">
                 <div class="relative">
-                    <img src="src/img/nkpi.png" alt="Tentang SUPM Pariaman" class="rounded-2xl shadow-2xl relative z-10 w-full object-cover h-[400px]">
+                    <img src="/src/img/nkpi.png" alt="Tentang SUPM Pariaman" class="rounded-2xl shadow-2xl relative z-10 w-full object-cover h-[400px]">
                     <div class="absolute -top-5 -left-5 w-32 h-32 bg-yellow-400 rounded-2xl -z-0 hidden md:block"></div>
                     <div class="absolute -bottom-5 -right-5 w-32 h-32 bg-[#163C67] rounded-2xl -z-0 hidden md:block"></div>
                 </div>
             </div>
 
             <div class="w-full px-4 lg:w-1/2" data-aos="fade-left">
-                <h4 class="font-bold uppercase text-primary text-lg mb-3 tracking-widest">Profil Sekolah</h4>
-                <h2 class="font-bold text-dark dark:text-white text-3xl mb-5 lg:text-4xl">Membangun Generasi Bahari Berstandar Global</h2>
-                <p class="font-medium text-secondary text-base leading-relaxed mb-6 text-justify">
+                <h4 class="font-bold uppercase text-[#163C67] text-lg mb-3 tracking-widest">Profil Sekolah</h4>
+                <h2 class="font-bold text-dark dark:text-white text-3xl mb-5 lg:text-4xl leading-tight">Membangun Generasi Bahari Berstandar Global</h2>
+                <p class="font-medium text-secondary text-base leading-relaxed mb-8 text-justify">
                     Sekolah Usaha Perikanan Menengah (SUPM) Pariaman adalah lembaga pendidikan di bawah Kementerian Kelautan dan Perikanan yang berdedikasi tinggi untuk menciptakan tenaga kerja ahli di sektor maritim. 
                 </p>
-                <p class="font-light text-secondary text-base leading-relaxed mb-10 text-justify">
-                    Dengan kurikulum yang mengutamakan praktik lapangan (70%) dan teori (30%), kami memastikan setiap lulusan memiliki sertifikasi kompetensi yang diakui baik di dalam negeri maupun internasional.
-                </p>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
                     <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-xl border-l-4 border-yellow-500 shadow-sm">
                         <h5 class="font-bold text-dark dark:text-white mb-2 italic">Visi</h5>
                         <p class="text-sm text-secondary">Menjadi pusat unggulan pendidikan kelautan yang menghasilkan SDM yang mandiri dan kompetitif.</p>
                     </div>
-                    <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-xl border-l-4 border-primary shadow-sm">
+                    <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-xl border-l-4 border-[#163C67] shadow-sm">
                         <h5 class="font-bold text-dark dark:text-white mb-2 italic">Misi</h5>
                         <ul class="text-xs text-secondary list-disc ml-4 space-y-1">
                             <li>Menyelenggarakan diklat berbasis kompetensi.</li>
@@ -294,26 +386,116 @@
                         </ul>
                     </div>
                 </div>
+
+                <div class="flex flex-col sm:flex-row gap-6 justify-start items-center">
+                    <a href="#profile-detail"
+                       class="group flex items-center justify-center bg-yellow-500 text-[#163C67] text-[15px] font-bold
+                       h-12 px-10 rounded-full hover:bg-[#163C67] hover:text-white transition-all duration-300 shadow-xl scale-100 hover:scale-105">
+                       Lihat Profil Lengkap
+                    </a>
+                </div>
             </div>
         </div>
 
-        <div class="mt-20 flex flex-wrap justify-center gap-8 md:gap-20">
-            <div class="text-center" data-aos="zoom-in" data-aos-delay="100">
-                <span class="block text-4xl font-bold text-primary mb-1">20+</span>
-                <span class="text-sm uppercase tracking-widest text-secondary font-semibold">Tahun Pengalaman</span>
+        <div class="text-center mb-12">
+            <h4 class="font-bold uppercase text-yellow-500 text-sm mb-2 tracking-[0.3em]">Program Keahlian</h4>
+            <h2 class="font-bold text-[#163C67] text-3xl lg:text-4xl mb-4">4 Jurusan Unggulan</h2>
+            <div class="w-20 h-1 bg-yellow-500 mx-auto rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-100 group hover:shadow-2xl transition-all duration-500" data-aos="fade-up" data-aos-delay="100">
+                <div class="h-52 overflow-hidden">
+                    <img src="src/img/DSCF5361.png" alt="NKPI" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-8 text-center">
+                    <h5 class="text-green-700 font-semibold text-sm mb-2 uppercase tracking-wide"> Nautika Kapal Penangkap Ikan</h5>
+                    <h3 class="text-[#163C67] font-bold text-xl uppercase">NKPI</h3>
+                    <p class="text-gray-500 text-xs mt-3 leading-relaxed">ilmu navigasi dan pengoperasian kapal penangkap ikan</p>
+                </div>
             </div>
-            <div class="text-center" data-aos="zoom-in" data-aos-delay="200">
-                <span class="block text-4xl font-bold text-primary mb-1">1000+</span>
-                <span class="text-sm uppercase tracking-widest text-secondary font-semibold">Lulusan Bekerja</span>
+
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-100 group hover:shadow-2xl transition-all duration-500" data-aos="fade-up" data-aos-delay="200">
+                <div class="h-52 overflow-hidden">
+                    <img src="src/img/DSCF5369.png" alt="TKPI" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-8 text-center">
+                    <h5 class="text-green-700 font-semibold text-sm mb-2 uppercase tracking-wide">Teknika Kapal Penangkap Ikan</h5>
+                    <h3 class="text-[#163C67] font-bold text-xl uppercase">TKPI</h3>
+                    <p class="text-gray-500 text-xs mt-3 leading-relaxed">mesin dan sistem teknis kapal perikanan</p>
+                </div>
             </div>
-            <div class="text-center" data-aos="zoom-in" data-aos-delay="300">
-                <span class="block text-4xl font-bold text-primary mb-1">5</span>
-                <span class="text-sm uppercase tracking-widest text-secondary font-semibold">Program Keahlian</span>
+
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-100 group hover:shadow-2xl transition-all duration-500" data-aos="fade-up" data-aos-delay="300">
+                <div class="h-52 overflow-hidden">
+                    <img src="src/img/DSCF5354.png" alt="TBP" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-8 text-center">
+                    <h5 class="text-green-700 font-semibold text-sm mb-2 uppercase tracking-wide">Agribisnis Perikanan Air Payau dan Laut</h5>
+                    <h3 class="text-[#163C67] font-bold text-xl uppercase">APAPL</h3>
+                    <p class="text-gray-500 text-xs mt-3 leading-relaxed">budidaya organisme perairan di laut dan tambak air payau</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-100 group hover:shadow-2xl transition-all duration-500" data-aos="fade-up" data-aos-delay="400">
+                <div class="h-52 overflow-hidden">
+                    <img src="src/img/DSCF5345.png" alt="TPHPI" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-8 text-center">
+                    <h5 class="text-green-700 font-semibold text-sm mb-2 uppercase tracking-wide"> Agribisnis Pengolahan Hasil Perikanan</h5>
+                    <h3 class="text-[#163C67] font-bold text-xl uppercase">APHP</h3>
+                    <p class="text-gray-500 text-xs mt-3 leading-relaxed">pengolahan dan pengawetan hasil perikanan</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="relative bg-[#163C67] pt-20 pb-24 mt-20">
+        <div class="absolute top-0 left-0 w-full overflow-hidden leading-[0] transform translate-y-[-99%]">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-[calc(100%+1.3px)] h-[80px] md:h-[120px]">
+                <path d="M0,0 C300,120 900,120 1200,0 L1200,120 L0,120 Z" fill="#163C67"></path>
+            </svg>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-8 items-start justify-center text-center">
+                
+                <div class="flex flex-col items-center group" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="mb-6 text-yellow-400 transition-transform duration-300 group-hover:scale-110">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18 18l2 2 4-4" />
+                        </svg>
+                    </div>
+                    <span class="block text-5xl font-extrabold text-white mb-2">20+</span>
+                    <span class="text-sm md:text-base font-semibold text-white/80 tracking-wide">Tahun Pengalaman</span>
+                </div>
+
+                <div class="flex flex-col items-center group" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="mb-6 text-yellow-400 transition-transform duration-300 group-hover:scale-110">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                        </svg>
+                    </div>
+                    <span class="block text-5xl font-extrabold text-white mb-2">1000+</span>
+                    <span class="text-sm md:text-base font-semibold text-white/80 tracking-wide">Lulusan Bekerja</span>
+                </div>
+
+                <div class="flex flex-col items-center group" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="mb-6 text-yellow-400 transition-transform duration-300 group-hover:scale-110">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                        </svg>
+                    </div>
+                    <span class="block text-5xl font-extrabold text-white mb-2">4</span>
+                    <span class="text-sm md:text-base font-semibold text-white/80 tracking-wide">Program Keahlian</span>
+                </div>
+
             </div>
         </div>
     </div>
 </section>
-
 <section id="contak" class="pt-36 pb-16 bg-slate-100 dark:bg-slate-900">
     <div class="container">
         <div class="w-full px-4">
@@ -439,7 +621,7 @@
                     </a>
                 </div>
                 <p class="text-center text-sm text-secondary">
-                    &copy; <span id="year"></span> SUPM Pariaman. Developed by <a href="#" class="text-white hover:text-primary">Muhammad Fajrin Lubis</a>.
+                    &copy; <span id="year"></span> SUPM Pariaman. Developed by <a href="#" class="text-white hover:text-primary"></a>.
                 </p>
             </div>
         </div>
